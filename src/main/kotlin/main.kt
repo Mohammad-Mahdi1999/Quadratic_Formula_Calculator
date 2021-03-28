@@ -9,7 +9,7 @@ fun sqrt(a:Int):Double {
 fun main() {
 
     //Showing quadratic equation in parametric coefficients form
-    println("aX^2+bX+c\n")
+    println("\n(a)X^2 + (b)X + (c)")
 
     //Getting Coefficients
     println("Enter the coefficients:")
@@ -20,27 +20,31 @@ fun main() {
     print("c: ")
     val c = readLine()!!.toInt()
 
-    //Showing quadratic equation in full form , replace parameters with numbers
+    //Replacing parameters with numbers
 
     //Replace a
-    print("\n$a" + "X^2")
+        print("\nQuadratic Equation : \n$a" + "X^2 ")
+
 
     //Replace b
-
-    if (b < 0) {
-        print("$b" + "X")
+    if (b < 0){
+        //Print a minus sign for negative inputs
+        print("- ")
+        print(b * -1)
+        print("X ")
     } else {
         //Print a plus sign for positive inputs
-        print("+$b" + "X")
+        print("+ $b" + "X ")
     }
 
     //Replace c
-
     if (c < 0) {
-        print("$c")
+        //Print a minus sign for negative inputs
+        print("- ")
+        print(c * -1)
     } else {
         //Print a plus sign for positive inputs
-        print("+$c")
+        print("+ $c")
     }
 
     //Calculating Delta
@@ -56,11 +60,11 @@ fun main() {
         delta > 0 -> {
 
             println("So, there are two roots.")
-            println("X1 = $x1 and X2 = $x2")
+            println("\nX1 = $x1 and X2 = $x2")
         }
         delta == 0 -> {
             println("So, there is one root.")
-            println("X = $x1")
+            println("\nX = $x1")
 
         }
         else -> {
