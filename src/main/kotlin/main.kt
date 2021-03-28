@@ -1,12 +1,18 @@
 //بسم اللّه الرحمن الرحیم
-import kotlin.math.pow
+import kotlin.math.sqrt
 
+//Square Roots Calculator Function
 fun sqrt(a:Int):Double {
-    return a.toDouble().pow(1/2.toDouble())
+    return sqrt(a.toDouble())
 }
 
 fun main() {
-    println("aX^2+bX+c")
+
+    //Showing quadratic equation in parametric coefficients form
+    println("aX^2+bX+c\n")
+
+    //Getting Coefficients
+    println("Enter the coefficients:")
     print("a: ")
     val a = readLine()!!.toInt()
     print("b: ")
@@ -14,52 +20,51 @@ fun main() {
     print("c: ")
     val c = readLine()!!.toInt()
 
-    print("$a"+"X^2")
+    //Showing quadratic equation in full form , replace parameters with numbers
 
-    if(b<0)
-    {
-        print("$b"+"X")
-    }
-    else
-    {
-        print("+$b"+"X")
+    //Replace a
+    print("\n$a" + "X^2")
+
+    //Replace b
+
+    if (b < 0) {
+        print("$b" + "X")
+    } else {
+        //Print a plus sign for positive inputs
+        print("+$b" + "X")
     }
 
-    if(c<0)
-    {
+    //Replace c
+
+    if (c < 0) {
         print("$c")
-    }
-    else
-    {
+    } else {
+        //Print a plus sign for positive inputs
         print("+$c")
     }
 
-    var delta : Int = b*b - (4 * a * c)
-    println("\ndelta : $delta")
+    //Calculating Delta
+    val delta: Int = b * b - (4 * a * c)
+    println("\n\ndelta : $delta")
 
+    //Calculating Roots
+    val x1: Double = (-1 * b + sqrt(delta)) / (2 * a)
+    val x2: Double = (-1 * b - sqrt(delta)) / (2 * a)
 
+    //Check number of roots
+    when {
+        delta > 0 -> {
 
-    var x1 : Double
-    var x2 : Double
+            println("So, there are two roots.")
+            println("X1 = $x1 and X2 = $x2")
+        }
+        delta == 0 -> {
+            println("So, there is one root.")
+            println("X = $x1")
 
-    x1 = (-1 * b + sqrt(delta))/(2*a)
-    x2 = (-1 * b - sqrt(delta))/(2*a)
-
-    if (delta>0)
-    {
-
-        println("So, there are two roots.")
-        println("X1 = $x1 and X2 = $x2")
+        }
+        else -> {
+            println("So, there is no root (there are two complex roots).")
+        }
     }
-    else if (delta == 0)
-    {
-        println("So, there is one root.")
-        println("X = $x1")
-
-    }
-    else
-    {
-        println("So, there is no root (there are two complex roots).")
-    }
-
 }
